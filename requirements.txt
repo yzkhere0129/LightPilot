@@ -1,0 +1,18 @@
+# Core
+pyyaml>=6.0
+numpy>=1.24.0
+
+# Engine (Phase 0)
+rawpy>=0.19.0                 # RAW decoding (LibRaw binding)
+opencv-python>=4.8.0          # Image resize, format conversion, export
+
+# GUI (Phase 3-4)
+PySide6>=6.5.0                # Qt6 GUI framework
+
+# Vision providers — install only what you use
+openai>=1.30.0                # For OpenAI GPT-4o and Ollama (OpenAI-compatible)
+anthropic>=0.28.0             # For Claude
+google-generativeai>=0.7.0    # For Gemini
+
+# Image handling (used by Google provider)
+Pillow>=10.0.0

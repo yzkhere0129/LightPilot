@@ -1,0 +1,14 @@
+.tmp/
+.data/
+__pycache__/
+*.pyc
+*.ARW
+*.arw
+*.CR2
+*.cr2
+*.CR3
+*.cr3
+*.NEF
+*.nef
+*.DNG
+*.dng

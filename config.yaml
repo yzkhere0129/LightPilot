@@ -1,0 +1,73 @@
+# LightPilot Configuration
+# 填写你的 API Key，只需填写你要使用的模型对应的 key
+
+models:
+  # 默认使用的模型（可选值见下方各模型的 provider 字段）
+  default: mimo
+
+  openai:
+    api_key: ""           # sk-...
+    model: "gpt-4o"       # gpt-4o / gpt-4o-mini / gpt-4-turbo
+    base_url: ""          # 留空使用官方地址，或填入代理/兼容接口地址
+
+  anthropic:
+    api_key: ""           # sk-ant-...
+    model: "claude-haiku-4-5-20251001"  # claude-haiku-4-5-20251001 / claude-sonnet-4-6
+
+  google:
+    api_key: ""           # AIza...
+    model: "gemini-1.5-flash"   # gemini-1.5-flash / gemini-1.5-pro / gemini-2.0-flash
+
+  deepseek:
+    api_key: ""           # 从 https://platform.deepseek.com 获取
+    model: "deepseek-chat"  # 官方 API 暂无视觉模型；可填自部署 VL2 的 model name
+    base_url: ""          # 留空用官方 https://api.deepseek.com，或填自部署 VL2 地址
+
+  mimo:
+    api_key: "tp-ctol9fyl9pkw2zozr8eguf52vnyn5jcu4m8l29vfy9dctd1f"           # 从 https://platform.xiaomimimo.com 获取
+    model: "mimo-v2-omni" # mimo-v2-omni（视觉）/ mimo-v2-pro（纯文本）
+    base_url: "https://token-plan-cn.xiaomimimo.com/v1"  # Token Plan 专属地址
+
+  ollama:
+    base_url: "http://localhost:11434"
+    model: "llava"        # llava / llava:13b / moondream 等本地视觉模型
+
+  # ---- 通用 OpenAI 兼容接口（适配任意第三方 API）----
+  custom:
+    api_key: ""
+    model: ""             # 填写模型名称
+    base_url: ""          # 填写 API 地址（必须支持 OpenAI /v1/chat/completions 格式）
+
+# 迭代参数
+agent:
+  max_iterations: 5         # 最大迭代轮数
+  preview_size: 1600        # 预览图最长边像素数（LR 导出时使用）
+  convergence_threshold: 0.1  # 收敛阈值（AI 置信度差值）
+  iteration_model: ""       # 留空则使用 models.default
+  final_review_model: ""    # 留空则不做最终二次审核
+
+# 风格学习
+style_learning:
+  enabled: true             # 是否从目录学习用户风格
+  source: "auto"            # auto = 整个目录 | selected = 仅用户在 LR 中选中的照片
+  top_n_examples: 5         # 发给 AI 的最相似照片数量（图片+参数）
+  include_before_after: true  # 是否导出前后对比缩略图让 AI 看
+  thumbnail_size: 800       # 缩略图最长边像素数
+
+# 文件桥接目录（LR 插件与 Python 后端通信用，仅旧版 backend/ 需要）
+bridge:
+  directory: "~/.lightpilot"
+  poll_interval: 0.5        # Python 轮询间隔（秒）
+  timeout: 30               # 等待 LR 响应超时（秒）
+
+# ──── 独立引擎配置（lightpilot/ 新架构）────
+engine:
+  proxy_pixels: 2000000     # 预览代理分辨率（像素总数，0=全分辨率）
+  export_quality: 95        # JPEG 导出质量
+
+catalog:
+  db_path: ".data/catalog.db"  # SQLite 目录数据库路径（相对于项目根目录）
+
+gui:
+  theme: "dark"             # 目前仅支持 dark
+  thumbnail_size: 200       # Library 缩略图尺寸

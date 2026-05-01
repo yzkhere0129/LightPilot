@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "source": "DSC08483.ARW",
+  "params": {
+    "Blacks2012": 26,
+    "ColorGradeHighlightHue": 43,
+    "ColorGradeHighlightSat": 15,
+    "ColorGradeShadowHue": 178,
+    "ColorGradeShadowSat": 15,
+    "Contrast2012": -10,
+    "Exposure2012": 0.6,
+    "GrainAmount": 30,
+    "GrainSize": 35,
+    "Highlights2012": -25,
+    "HueAdjustmentGreen": 30,
+    "LuminanceAdjustmentGreen": 15,
+    "LuminanceAdjustmentOrange": 10,
+    "PostCropVignetteAmount": -20,
+    "Saturation": -10,
+    "SaturationAdjustmentBlue": -30,
+    "Shadows2012": 55,
+    "Temperature": 7000,
+    "Tint": -4,
+    "Vibrance": 10,
+    "Whites2012": -4
+  }
+}
