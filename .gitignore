@@ -1,7 +1,15 @@
+# User config (contains API keys — DO NOT commit)
+config.yaml
+
+# Runtime data
 .tmp/
 .data/
+
+# Python
 __pycache__/
 *.pyc
+
+# RAW files (large binaries)
 *.ARW
 *.arw
 *.CR2
@@ -12,3 +20,11 @@ __pycache__/
 *.nef
 *.DNG
 *.dng
+*.RAF
+*.raf
+*.ORF
+*.orf
+*.RW2
+*.rw2
+*.PEF
+*.pef

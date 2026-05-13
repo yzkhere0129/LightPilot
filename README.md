@@ -42,57 +42,47 @@
 
 ## Quick Start
 
-### Requirements
+### 1. Clone
 
-- Python 3.10+
-- At least one AI provider API key (or Ollama for local inference)
+```bash
+git clone https://github.com/yzkhere0129/LightPilot.git
+cd LightPilot
+```
 
-### Install
+### 2. Create virtual environment (recommended)
+
+```bash
+python -m venv venv
+# Windows
+venv\Scripts\activate
+# macOS / Linux
+source venv/bin/activate
+```
+
+### 3. Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### Configure
+Dependencies: `rawpy` (RAW decoding), `numpy`, `opencv-python`, `PySide6` (GUI), `pyyaml`, `Pillow`, and optional AI provider SDKs (`openai`, `anthropic`, `google-generativeai`).
 
-Copy and edit `config.yaml` with your API key:
+### 4. Configure API key
 
-```yaml
-models:
-  default: openai              # or anthropic, google, ollama, deepseek, mimo, custom
+```bash
+cp config.example.yaml config.yaml
+```
 
-  openai:
-    api_key: "sk-..."
-    model: "gpt-4o"
+Open `config.yaml`, set `models.default` to your provider, and fill in the corresponding `api_key`. You only need **one** provider. For local inference with Ollama, no API key is needed.
 
-  anthropic:
-    api_key: "sk-ant-..."
-    model: "claude-haiku-4-5-20251001"
+### 5. Run
 
-  google:
-    api_key: "AIza..."
-    model: "gemini-2.0-flash"
+```bash
+# Launch GUI
+python -m lightpilot
 
-  ollama:
-    base_url: "http://localhost:11434"
-    model: "llava"
-
-  deepseek:
-    api_key: "sk-..."
-    model: "deepseek-chat"
-
-  mimo:
-    api_key: "..."
-    model: "mimo-v2-omni"
-
-  custom:
-    api_key: "..."
-    base_url: "https://your-api.com/v1"
-    model: "your-model"
-
-agent:
-  max_iterations: 5
-  convergence_threshold: 0.1
+# Or use AI CLI directly
+python -m lightpilot.ai photo.ARW -s "warm film look" -o result.jpg
 ```
 
 ## Usage

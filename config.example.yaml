@@ -1,0 +1,66 @@
+# LightPilot Configuration
+# Copy this file to config.yaml and fill in your API key(s).
+#   cp config.example.yaml config.yaml
+
+models:
+  # Default provider (openai / anthropic / google / ollama / deepseek / mimo / custom)
+  default: openai
+
+  openai:
+    api_key: ""               # sk-...
+    model: "gpt-4o"           # gpt-4o / gpt-4o-mini
+    base_url: ""              # Leave empty for official API, or set proxy / compatible endpoint
+
+  anthropic:
+    api_key: ""               # sk-ant-...
+    model: "claude-haiku-4-5-20251001"
+
+  google:
+    api_key: ""               # AIza...
+    model: "gemini-2.0-flash" # gemini-2.0-flash / gemini-1.5-pro
+
+  deepseek:
+    api_key: ""               # From https://platform.deepseek.com
+    model: "deepseek-chat"
+    base_url: ""              # Leave empty for official API
+
+  mimo:
+    api_key: ""               # From https://platform.xiaomimimo.com
+    model: "mimo-v2-omni"
+    base_url: ""              # Leave empty for default endpoint
+
+  ollama:
+    base_url: "http://localhost:11434"
+    model: "llava"            # llava / moondream / any local vision model
+
+  # Generic OpenAI-compatible endpoint
+  custom:
+    api_key: ""
+    model: ""
+    base_url: ""              # Must support /v1/chat/completions format
+
+# AI agent settings
+agent:
+  max_iterations: 5
+  convergence_threshold: 0.1
+
+# Style learning (learn from your editing history)
+style_learning:
+  enabled: true
+  top_n_examples: 5
+  include_before_after: true
+  thumbnail_size: 800
+
+# Engine settings
+engine:
+  proxy_pixels: 2000000      # Proxy resolution (total pixels, 0 = full res)
+  export_quality: 95          # JPEG export quality
+
+# Catalog
+catalog:
+  db_path: ".data/catalog.db"
+
+# GUI
+gui:
+  theme: "dark"
+  thumbnail_size: 200
